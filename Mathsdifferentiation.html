@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SHS Add Maths: Differentiation Tool</title>
+  <style>
+    body { font-family: Arial; max-width: 600px; margin: 50px auto; padding: 20px; }
+    input, button { padding: 10px; margin: 5px; font-size: 16px; }
+    #result { margin-top: 20px; font-weight: bold; color: green; }
+  </style>
+</head>
+<body>
+  <h1>Differentiation Calculator</h1>
+  <p>For: ax^n → nx^(n-1)</p>
+  
+  <input id="a" type="number" placeholder="a value"> x^
+  <input id="n" type="number" placeholder="n power">
+  <button onclick="differentiate()">Find dy/dx</button>
+  
+  <div id="result"></div>
+
+  <script>
+    function differentiate() {
+      let a = document.getElementById('a').value;
+      let n = document.getElementById('n').value;
+      
+      let newA = a * n;
+      let newN = n - 1;
+      
+      let result = `dy/dx = ${newA}x^${newN}`;
+      if(newN == 0) result = `dy/dx = ${newA}`;
+      if(newN == 1) result = `dy/dx = ${newA}x`;
+      
+      document.getElementById('result').innerText = result;
+    }
+  </script>
+</body>
+</html>
